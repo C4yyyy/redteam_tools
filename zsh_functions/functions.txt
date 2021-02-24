@@ -19,3 +19,15 @@ monitorName () {
 	echo -e "[*] Card name copied to clipboard\n" >> monitorCardName.tmp
 	bat monitorCardName.tmp; rm monitorCardName.tmp
 }
+
+#Function to change MAC automatically
+function cMac(){
+        name="$(ifconfig | grep -oP '\d|\w{15}' | grep -oP '\w{15}')"
+        down="$(ifconfig wlx00c0caad0654 down)"
+        mac="$(macchanger -a wlx00c0caad0654 | grep 'New' | grep -oP '\w{2}:|\d{2}|\w\d' | xargs | grep -oP '\d[^,]*+' | sed 's/ //g')"
+        up="$(ifconfig wlx00c0caad0654 up)"
+        $down
+        echo -e "\n [*] La mac de $name ha cambiado a $mac\n" > cmac.tmp
+        $up
+        cat cmac.tmp; rm cmac.tmp
+}
