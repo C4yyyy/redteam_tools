@@ -22,11 +22,12 @@ monitorName () {
 
 #Function to change MAC automatically
 #IMPORTANT run as root/sudo perms
+#May appear without the mac, keep executing cMac and it whill work correctly
 function cMac(){
         name="$(ifconfig | grep -oP '\d|\w{15}' | grep -oP '\w{15}')"
-        down="$(ifconfig wlx00c0caad0654 down)"
-        mac="$(macchanger -a wlx00c0caad0654 | grep 'New' | grep -oP '(\w{2}:|\d{2}|\w\d){6}' | xargs | grep -oP '\d[^,]*+' | sed 's/ //g')"
-        up="$(ifconfig wlx00c0caad0654 up)"
+        down="$(ifconfig $name down)"
+        mac="$(macchanger -a $name | grep 'New' | grep -oP '(\w{2}:|\d{2}|\w\d){6}' | xargs | grep -oP '\d[^,]*+' | sed 's/ //g')"
+        up="$(ifconfig $name up)"
         $down
         echo -e "\n [*] La mac de $name ha cambiado a $mac\n" > cmac.tmp
         $up
