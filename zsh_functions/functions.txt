@@ -1,0 +1,21 @@
+#Created by C4yyyy
+
+#extract IP from nmap
+extractIP () {
+	ip="$(cat allPorts | grep -oP "\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}" | tail -3 | head -n 1)" 
+	echo -e "\n[*] Extracting IP...\n" > extractIP.tmp
+	echo -e "     [*] IP address: $ip\n" >> extractIP.tmp
+	echo $ip | tr -d ' \n' | xclip -sel clip
+	echo -e "[*] IP copied to clipboard\n" >> extractIP.tmp
+	bat extractIP.tmp; rm extractIP.tmp
+}
+
+#Function to take wireless card name and copy to clipboard
+monitorName () {
+	name="$(ifconfig | grep -oP "\d|\w{15}" | tail -40 | grep -oP "\w{15}")" 
+	echo -e "\n[*] Extracting Alpha Card name...\n" > monitorCardName.tmp
+	echo -e "     [*] Card name: $name \n" >> monitorCardName.tmp
+	echo $name | tr -d ' \n' | xclip -sel clip
+	echo -e "[*] Card name copied to clipboard\n" >> monitorCardName.tmp
+	bat monitorCardName.tmp; rm monitorCardName.tmp
+}
