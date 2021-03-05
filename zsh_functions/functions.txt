@@ -33,3 +33,12 @@ function cMac(){
         $up
         cat cmac.tmp; rm cmac.tmp
 }
+
+myIP () {
+        ip="$(ip a | tail -7 | head -n 2 | tail -1 | grep -oP "\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}")" 
+        echo -e "\n[*] Extracting local IP...\n" > myIP.tmp
+        echo -e "       [*] IP address: $ip\n" >> myIP.tmp
+        echo $ip | tr -d ' \n' | xclip -sel clip
+        echo -e "[*] IP copied to clipboard\n" >> myIP.tmp
+        cat myIP.tmp; rm myIP.tmp
+}
