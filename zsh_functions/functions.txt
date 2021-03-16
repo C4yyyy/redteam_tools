@@ -1,6 +1,6 @@
 #Created by C4yyyy
 
-#extract IP from nmap
+#extraer la IP de fichero nmap grepeable
 extractIP () {
 	ip="$(cat allPorts | grep -oP "\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}" | tail -3 | head -n 1)" 
 	echo -e "\n[*] Extracting IP...\n" > extractIP.tmp
@@ -10,7 +10,7 @@ extractIP () {
 	bat extractIP.tmp; rm extractIP.tmp
 }
 
-#Function to take wireless card name and copy to clipboard
+#función para extraer el nombre de la tarjeta de red
 monitorName () {
 	name="$(ifconfig | grep -oP "\d|\w{15}" | tail -40 | grep -oP "\w{15}")" 
 	echo -e "\n[*] Extracting Alpha Card name...\n" > monitorCardName.tmp
@@ -34,6 +34,7 @@ function cMac(){
         cat cmac.tmp; rm cmac.tmp
 }
 
+#funcion para extraer la IP de la VPN de la maquina local
 myIP () {
         ip="$(ip a | tail -7 | head -n 2 | tail -1 | grep -oP "\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}")" 
         echo -e "\n[*] Extracting local IP...\n" > myIP.tmp
