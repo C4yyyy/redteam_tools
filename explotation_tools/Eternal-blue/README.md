@@ -1,3 +1,21 @@
+###
+Editamos el fichero start.sh
+
+cambiamos las IP victima y la atacante, editar los puertos es opcional
+
+./start.sh
+
+creamos 2 sesiones de escucha con netcat (nc -lvnp 8888, nc -lvnp 9999)
+
+ejecutamos el comando que nos da el script start.sh
+
+obtendremos la reverse shell
+
+###
+
+
+
+
 # MS17-010
 
 ## Intro
