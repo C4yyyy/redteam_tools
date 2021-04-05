@@ -2,7 +2,7 @@
 
 # change these values to your attacking IP and 2 ports for 32bit/64bit Architecture
 attackerIP=10.10.14.19 # put your ip here*
-vulnerableIP=10.10.10.40  # put the victim ip here*
+vulnerableIP=10.10.10.4  # put the victim ip here*
 arch_x86_port=8888 # x86 msfconsole multi handler port (optional change)
 arch_x64_port=9999 # x64 msfconsole multi handler port (optional change)
 
