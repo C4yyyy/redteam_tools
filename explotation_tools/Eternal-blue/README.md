@@ -2,7 +2,7 @@
 
 <h2>Edit start.sh file</h2>
 
-<p>Change <b>attacker/victim IP</p>
+<p>Change <b>attacker/victim</b> IP</p>
 
 ````bash
 ./start.sh
