@@ -3,8 +3,6 @@ from sys import *
 from signal import signal, SIGINT
 
 #Created by C4yyyy
-#Need to
-
 
 def handler(signal_reveived, frame):
 	print('\n [!] Saliendo...\n')
@@ -14,7 +12,6 @@ def handler(signal_reveived, frame):
 for i in range(255):
 
 	response_list = ping("10.10.10." + str(i), count=1) #Edit ip
-
 
 	if response_list.rtt_avg_ms < 300:
 		print("10.10.10.{} --> Host up".format(i)) #Edit ip
